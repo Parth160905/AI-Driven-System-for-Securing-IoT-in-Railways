@@ -1,45 +1,83 @@
-# 🚆 AI-Driven System for Securing IoT in Railways
+#AI-Driven System for Securing IoT in Railways
 
-An AI-driven web-based security system designed to improve the safety and security of IoT-enabled railway infrastructure. The system focuses on monitoring railway IoT devices, detecting suspicious activities, and providing a centralized security dashboard.
+A web-based railway IoT security platform that simulates live railway telemetry, applies statistical anomaly detection with railway-specific security rules, generates severity-based alerts, and provides role-based device administration and audit logging.
+
+---
 
 ## 🌐 Live Demo
 
-🔗 **Live Website:**  
+🚀 **Live Website:**
+
 https://parth160905.github.io/AI-Driven-System-for-Securing-IoT-in-Railways/
 
-## 📌 About the Project
+---
 
-Modern railway systems use IoT devices and sensors for monitoring trains, tracks, signals, stations, and other critical infrastructure. However, the increasing use of connected devices also introduces cybersecurity risks.
+## 📌 Project Overview
 
-This project presents an **AI-driven security interface for railway IoT systems**, designed to help monitor connected devices and identify potential security threats.
+Modern metro and railway systems rely on interconnected IoT devices such as trains, track sensors, signals, cameras, and automated fare gates.
 
-## ✨ Features
+While these connected systems improve efficiency and automation, they also introduce cybersecurity risks such as abnormal traffic, spoofed telemetry, communication interception, and sensor manipulation.
 
-- 🚆 Railway IoT security monitoring
-- 🤖 AI-driven security concept
-- 📡 IoT device monitoring
-- 🔐 Security threat detection interface
-- 📊 Centralized security dashboard
-- 🚨 Suspicious activity monitoring
-- 📱 Responsive and user-friendly interface
-- 🌐 Web-based implementation
+**SecureMetro IoT** is a front-end security platform designed to demonstrate how railway IoT telemetry can be monitored and analyzed for potential threats.
 
-## 🛠️ Technologies Used
+The application includes a simulated railway IoT environment where devices continuously generate telemetry data. An anomaly-detection engine learns the normal behaviour of each device and identifies significant deviations using statistical analysis and predefined railway security rules.
 
-- **HTML5** – Website structure
-- **CSS3** – Styling and responsive design
-- **JavaScript** – Interactive functionality
-- **IoT Security Concepts** – Device and infrastructure security
-- **AI/ML Concepts** – Threat detection and intelligent monitoring
-- **Git & GitHub** – Version control and project hosting
-- **GitHub Pages** – Website deployment
+---
 
-## 🏗️ Project Structure
+## ✨ Key Features
+
+### 📡 Live IoT Fleet Simulation
+
+The system simulates telemetry from multiple railway IoT devices, including:
+
+- 🚆 Trains
+- 🌡️ Track sensors
+- 🚦 Signal nodes
+- 📷 Platform cameras
+- 🎫 Automated fare gates
+
+Each device generates simulated readings such as:
+
+- Packet rate
+- Network latency
+- Train speed
+- Vibration
+- Temperature
+- Humidity
+- Voltage
+- FPS
+- Passenger/tap activity
+
+Telemetry is updated automatically every **2.5 seconds**.
+
+---
+
+### 🤖 AI-Based Anomaly Detection
+
+The application includes a statistical anomaly-detection engine based on **rolling z-score analysis**.
+
+For each device, the system:
+
+1. Collects historical telemetry.
+2. Builds a rolling behavioural baseline.
+3. Calculates the mean and standard deviation.
+4. Measures how far new readings deviate from the baseline.
+5. Converts the deviation into an anomaly score.
+6. Classifies the event based on severity.
+
+The system maintains up to **40 historical readings per metric** for each device.
+
+Anomaly detection begins after sufficient historical data has been collected.
+
+---
+
+### 🛡️ Railway-Specific Threat Detection
+
+In addition to statistical anomaly detection, the application uses domain-specific rules to identify potential railway IoT security threats.
+
+#### Possible DDoS-like Flood
+
+Triggered when:
 
 ```text
-AI-Driven-System-for-Securing-IoT-in-Railways/
-│
-├── index.html
-├── style.css
-├── app.js
-└── README.md
+Packet Rate > 900 packets/sec
